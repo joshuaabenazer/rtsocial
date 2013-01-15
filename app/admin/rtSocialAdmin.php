@@ -48,18 +48,18 @@ if (!class_exists('rtSocialAdmin')) {
          * Render the BuddyPress Media Settings page
          */
         public function settings_page() {
-            $this->render_page('rtsocial-revised-options', true);
+            $this->render_page('rtsocial-revised-options');
         }
 
         /**
          * Renders the setting page
          */
-        public function render_page(){ ?>
+        public function render_page($page){ ?>
             <div class="wrap rtsocial-admin">
                 <h2><?php _e( 'RTSocial Options' ); ?></h2>
                 <form method="post" action="options.php" name="rtsocial_setting_form" id="rtsocial_setting_form"><?php
-                    settings_fields( 'rtsocial_settings' );
-                    do_settings_sections( __FILE__ ); 
+                    settings_fields( 'rtsocial_plugin_options' );
+                    do_settings_sections( $page ); 
                     submit_button(); ?>
                 </form>
             </div><?php
